@@ -26,3 +26,15 @@ In this case, the documented can be easily located by incrementally reading the 
 - The ID starts with `12`, meaning it will be in `12000000/`
 - The next two digits are `34`, meaning it will be in `12000000/12340000/`
 - And so on...
+
+For IDs shorter than 8 digits, directory and file names are padded at the start with `-` to ensure that Github lists directories or files in the correct order:
+| # | w/o padding   | w/ padding      |
+| - | ------------- | --------------- |
+| 1 | `1.json`      | `-------1.json` |
+| 2 | `10.json`     | `-------2.json` |
+| 3 | `100.json`    | `-------3.json` |
+| 4 | `2.json`      | `-------4.json` |
+| 5 | `20.json`     | `-------5.json` |
+| 6 | `200.json`    | `-------6.json` |
+
+For example, a document with ID 1234 will be placed in `-------0/-------0/----1200/----1234.json`
