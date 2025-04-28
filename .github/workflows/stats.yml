@@ -1,0 +1,51 @@
+name: Generate statistics
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout forumPosts archive
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          ref: main
+          repository: deeeepio-archive/forumPosts
+          path: forumPosts
+
+      - name: Checkout maps archive
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          ref: main
+          repository: deeeepio-archive/maps
+          path: maps
+
+      - name: Checkout users archive
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          ref: main
+          repository: deeeepio-archive/users
+          path: users
+
+      - name: Count files
+        run: |
+          echo "Forum posts: $(find forumPosts -type f | wc -l) files ($(du -sh --exclude=.git/** forumPosts))" >> stats
+          echo "Maps: $(find maps -type f | wc -l) files ($(du -sh --exclude=.git/** maps))" >> stats
+          echo "Users: $(find users -type f | wc -l) files ($(du -sh --exclude=.git/** users))" >> stats
+
+      - name: Update README
+        run: |
+          npm run generate:stats
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update statistics
