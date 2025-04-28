@@ -11,10 +11,14 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Checkout .github
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Checkout forumPosts archive
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
           ref: main
           repository: deeeepio-archive/forumPosts
           path: forumPosts
@@ -22,7 +26,6 @@ jobs:
       - name: Checkout maps archive
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
           ref: main
           repository: deeeepio-archive/maps
           path: maps
@@ -30,7 +33,6 @@ jobs:
       - name: Checkout users archive
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
           ref: main
           repository: deeeepio-archive/users
           path: users
