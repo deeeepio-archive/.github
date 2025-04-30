@@ -39,9 +39,9 @@ jobs:
 
       - name: Count files
         run: |
-          echo "Forum posts: $(find forumPosts -type f | wc -l) files ($(du -sh --exclude=.git/** forumPosts | grep -oE '[0-9]+[A-Za-z]+?'))  " >> stats
-          echo "Maps: $(find maps -type f | wc -l) files ($(du -sh --exclude=.git/** maps | grep -oE '[0-9]+[A-Za-z]+?'))  " >> stats
-          echo "Users: $(find users -type f | wc -l) files ($(du -sh --exclude=.git/** users | grep -oE '[0-9]+[A-Za-z]+?'))  " >> stats
+          echo "Forum posts: $(find forumPosts -type f | wc -l) files ($(du -sh --exclude=.git/** forumPosts | grep -oE '[0-9.]+[A-Za-z]+?'))  " >> stats
+          echo "Maps: $(find maps -type f | wc -l) files ($(du -sh --exclude=.git/** maps | grep -oE '[0-9.]+[A-Za-z]+?'))  " >> stats
+          echo "Users: $(find users -type f | wc -l) files ($(du -sh --exclude=.git/** users | grep -oE '[0-9.]+[A-Za-z]+?'))  " >> stats
 
       - name: Update README
         run: |
