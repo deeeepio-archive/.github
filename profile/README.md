@@ -51,7 +51,7 @@ For example, a document with ID 1234 will be placed in `-------0/-------0/----12
 
 # 📊 Statistics
 
-Forum posts: 59,120 files (1011M)  
+Forum posts: 59,156 files (1013M)  
 Maps: 11,984 files (707M)  
-Users: 1,078,246 files (4.2G)  
+Users: 1,078,249 files (4.2G)  
 
