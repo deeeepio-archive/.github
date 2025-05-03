@@ -21,98 +21,100 @@ const leaderboards = {
 	},
 };
 
+const nums = 10;
 const repos = ["forumPosts", "users"];
 const callbacks = {
 	forumPosts: (post) => {
 		if (
-			leaderboards.forumPosts.upvotes.length < 5 ||
-			leaderboards.forumPosts.upvotes[4].likes < post.likes
+			leaderboards.forumPosts.upvotes.length < nums ||
+			leaderboards.forumPosts.upvotes[nums - 1].likes < post.likes
 		) {
 			leaderboards.forumPosts.upvotes.push(post);
 			leaderboards.forumPosts.upvotes = leaderboards.forumPosts.upvotes
 				.sort((a, b) => b.likes - a.likes)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 
 		if (
-			leaderboards.forumPosts.comments.length < 5 ||
-			leaderboards.forumPosts.comments[4].comments.length < post.comments.length
+			leaderboards.forumPosts.comments.length < nums ||
+			leaderboards.forumPosts.comments[nums - 1].comments.length <
+				post.comments.length
 		) {
 			leaderboards.forumPosts.comments.push(post);
 			leaderboards.forumPosts.comments = leaderboards.forumPosts.comments
 				.sort((a, b) => b.comments.length - a.comments.length)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 
 		if (
-			leaderboards.forumPosts.views.length < 5 ||
-			leaderboards.forumPosts.views[4].views < post.views
+			leaderboards.forumPosts.views.length < nums ||
+			leaderboards.forumPosts.views[nums - 1].views < post.views
 		) {
 			leaderboards.forumPosts.views.push(post);
 			leaderboards.forumPosts.views = leaderboards.forumPosts.views
 				.sort((a, b) => b.views - a.views)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 	},
 	users: (user) => {
 		if (
-			leaderboards.users.coins.length < 5 ||
-			leaderboards.users.coins[4].coins < user.coins
+			leaderboards.users.coins.length < nums ||
+			leaderboards.users.coins[nums - 1].coins < user.coins
 		) {
 			leaderboards.users.coins.push(user);
 			leaderboards.users.coins = leaderboards.users.coins
 				.sort((a, b) => b.coins - a.coins)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 
 		if (
-			leaderboards.users.xp.length < 5 ||
-			leaderboards.users.xp[4].xp < user.xp
+			leaderboards.users.xp.length < nums ||
+			leaderboards.users.xp[nums - 1].xp < user.xp
 		) {
 			leaderboards.users.xp.push(user);
 			leaderboards.users.xp = leaderboards.users.xp
 				.sort((a, b) => b.xp - a.xp)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 
 		if (
-			leaderboards.users.playCount.length < 5 ||
-			leaderboards.users.playCount[4].play_count < user.play_count
+			leaderboards.users.playCount.length < nums ||
+			leaderboards.users.playCount[nums - 1].play_count < user.play_count
 		) {
 			leaderboards.users.playCount.push(user);
 			leaderboards.users.playCount = leaderboards.users.playCount
 				.sort((a, b) => b.play_count - a.play_count)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 
 		if (
-			leaderboards.users.killCount.length < 5 ||
-			leaderboards.users.killCount[4].kill_count < user.kill_count
+			leaderboards.users.killCount.length < nums ||
+			leaderboards.users.killCount[nums - 1].kill_count < user.kill_count
 		) {
 			leaderboards.users.killCount.push(user);
 			leaderboards.users.killCount = leaderboards.users.killCount
 				.sort((a, b) => b.kill_count - a.kill_count)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 
 		if (
-			leaderboards.users.highscore.length < 5 ||
-			leaderboards.users.highscore[4].highest_score < user.highest_score
+			leaderboards.users.highscore.length < nums ||
+			leaderboards.users.highscore[nums - 1].highest_score < user.highest_score
 		) {
 			leaderboards.users.highscore.push(user);
 			leaderboards.users.highscore = leaderboards.users.highscore
 				.sort((a, b) => b.highest_score - a.highest_score)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 
 		if (
-			leaderboards.users.views.length < 5 ||
-			leaderboards.users.views[4].profile_views < user.profile_views
+			leaderboards.users.views.length < nums ||
+			leaderboards.users.views[nums - 1].profile_views < user.profile_views
 		) {
 			leaderboards.users.views.push(user);
 			leaderboards.users.views = leaderboards.users.views
 				.sort((a, b) => b.profile_views - a.profile_views)
-				.slice(0, 5);
+				.slice(0, nums);
 		}
 	},
 };
