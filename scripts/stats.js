@@ -111,6 +111,7 @@ for (const repo of repos) {
 	if (!fs.existsSync(`./${repo}`)) continue;
 	const millions = fs.readdirSync(`./${repo}`);
 	for (const million of millions) {
+		if (!million.match(/-*\d+/)) continue;
 		const tenThousands = fs.readdirSync(`./${repo}/${million}`);
 		for (const tenThousand of tenThousands) {
 			const hundreds = fs.readdirSync(`./${repo}/${million}/${tenThousand}`);
