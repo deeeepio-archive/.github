@@ -30,7 +30,13 @@ const leaderboards = {
 	},
 };
 
-const nums = 10;
+const c = `<details>
+<summary>Show more</summary>
+
+`;
+
+const nums = 100;
+const previewNums = 10;
 const repos = ["forumPosts", "users"];
 const callbacks = {
 	forumPosts: (post) => {
@@ -165,72 +171,80 @@ ${fileSizes}
 ${leaderboards.forumPosts.comments
 	.map(
 		(p, i) =>
-			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/${getPath(p.id)})) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(p.user.id)})) - ${h(p.comments.length)} comments`,
+			`${i === previewNums ? c : ""}${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/${getPath(p.id)})) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(p.user.id)})) - ${h(p.comments.length)} comments`,
 	)
 	.join("  \n")}
+</details>
 
 ### Upvotes
 ${leaderboards.forumPosts.upvotes
 	.map(
 		(p, i) =>
-			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/${getPath(p.id)})) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(p.user.id)})) - ${h(p.likes)} likes`,
+			`${i === previewNums ? c : ""}${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/${getPath(p.id)})) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(p.user.id)})) - ${h(p.likes)} likes`,
 	)
 	.join("  \n")}
+</details>
 
 ### Views
 ${leaderboards.forumPosts.views
 	.map(
 		(p, i) =>
-			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/${getPath(p.id)})) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(p.user.id)})) - ${h(p.views)} views`,
+			`${i === previewNums ? c : ""}${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/${getPath(p.id)})) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(p.user.id)})) - ${h(p.views)} views`,
 	)
 	.join("  \n")}
+</details>
 
 ## User leaderboards
 ### Account XP
 ${leaderboards.users.xp
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.xp)} xp`,
+			`${i === previewNums ? c : ""}${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.xp)} xp`,
 	)
 	.join("  \n")}
+</details>
 
 ### Coins
 ${leaderboards.users.coins
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.coins)} coins`,
+			`${i === previewNums ? c : ""}${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.coins)} coins`,
 	)
 	.join("  \n")}
+</details>
 
 ### Highest score
 ${leaderboards.users.highscore
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.highest_score)} xp`,
+			`${i === previewNums ? c : ""}${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.highest_score)} xp`,
 	)
 	.join("  \n")}
+</details>
 
 ### Kill count
 ${leaderboards.users.killCount
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.kill_count)} kills`,
+			`${i === previewNums ? c : ""}${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.kill_count)} kills`,
 	)
 	.join("  \n")}
+</details>
 
 ### Play count
 ${leaderboards.users.playCount
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.play_count)} plays`,
+			`${i === previewNums ? c : ""}${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.play_count)} plays`,
 	)
 	.join("  \n")}
+</details>
 
 ### Views
 ${leaderboards.users.views
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.profile_views)} views`,
+			`${i === previewNums ? c : ""}${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) ([archive](https://github.com/deeeepio-archive/users/blob/main/${getPath(u.id)})) - ${h(u.profile_views)} views`,
 	)
 	.join("  \n")}
 `;
