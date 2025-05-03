@@ -28,6 +28,7 @@ const callbacks = {
 			leaderboards.forumPosts.upvotes.length < 5 ||
 			leaderboards.forumPosts.upvotes[4].likes < post.likes
 		) {
+			leaderboards.forumPosts.upvotes.push(post);
 			leaderboards.forumPosts.upvotes = leaderboards.forumPosts.upvotes
 				.sort((a, b) => b.likes - a.likes)
 				.slice(0, 5);
@@ -37,6 +38,7 @@ const callbacks = {
 			leaderboards.forumPosts.comments.length < 5 ||
 			leaderboards.forumPosts.comments[4].comments.length < post.comments.length
 		) {
+			leaderboards.forumPosts.comments.push(post);
 			leaderboards.forumPosts.comments = leaderboards.forumPosts.comments
 				.sort((a, b) => b.comments.length - a.comments.length)
 				.slice(0, 5);
@@ -46,6 +48,7 @@ const callbacks = {
 			leaderboards.forumPosts.views.length < 5 ||
 			leaderboards.forumPosts.views[4].views < post.views
 		) {
+			leaderboards.forumPosts.views.push(post);
 			leaderboards.forumPosts.views = leaderboards.forumPosts.views
 				.sort((a, b) => b.views - a.views)
 				.slice(0, 5);
@@ -56,6 +59,7 @@ const callbacks = {
 			leaderboards.users.coins.length < 5 ||
 			leaderboards.users.coins[4].coins < user.coins
 		) {
+			leaderboards.users.coins.push(user);
 			leaderboards.users.coins = leaderboards.users.coins
 				.sort((a, b) => b.coins - a.coins)
 				.slice(0, 5);
@@ -65,6 +69,7 @@ const callbacks = {
 			leaderboards.users.xp.length < 5 ||
 			leaderboards.users.xp[4].xp < user.xp
 		) {
+			leaderboards.users.xp.push(user);
 			leaderboards.users.xp = leaderboards.users.xp
 				.sort((a, b) => b.xp - a.xp)
 				.slice(0, 5);
@@ -74,6 +79,7 @@ const callbacks = {
 			leaderboards.users.playCount.length < 5 ||
 			leaderboards.users.playCount[4].play_count < user.play_count
 		) {
+			leaderboards.users.playCount.push(user);
 			leaderboards.users.playCount = leaderboards.users.playCount
 				.sort((a, b) => b.play_count - a.play_count)
 				.slice(0, 5);
@@ -83,6 +89,7 @@ const callbacks = {
 			leaderboards.users.killCount.length < 5 ||
 			leaderboards.users.killCount[4].kill_count < user.kill_count
 		) {
+			leaderboards.users.killCount.push(user);
 			leaderboards.users.killCount = leaderboards.users.killCount
 				.sort((a, b) => b.kill_count - a.kill_count)
 				.slice(0, 5);
@@ -92,6 +99,7 @@ const callbacks = {
 			leaderboards.users.highscore.length < 5 ||
 			leaderboards.users.highscore[4].highest_score < user.highest_score
 		) {
+			leaderboards.users.highscore.push(user);
 			leaderboards.users.highscore = leaderboards.users.highscore
 				.sort((a, b) => b.highest_score - a.highest_score)
 				.slice(0, 5);
@@ -101,6 +109,7 @@ const callbacks = {
 			leaderboards.users.views.length < 5 ||
 			leaderboards.users.views[4].views < user.views
 		) {
+			leaderboards.users.views.push(user);
 			leaderboards.users.views = leaderboards.users.views
 				.sort((a, b) => b.views - a.views)
 				.slice(0, 5);
@@ -145,7 +154,7 @@ ${fileSizes}
 ${leaderboards.forumPosts.comments
 	.map(
 		(p, i) =>
-			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) - ${n(p.comments.length)} comments`,
+			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) - ${h(p.comments.length)} comments`,
 	)
 	.join("  \n")}
 
@@ -153,7 +162,7 @@ ${leaderboards.forumPosts.comments
 ${leaderboards.forumPosts.upvotes
 	.map(
 		(p, i) =>
-			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) - ${n(p.likes)} likes`,
+			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) - ${h(p.likes)} likes`,
 	)
 	.join("  \n")}
 
@@ -161,7 +170,7 @@ ${leaderboards.forumPosts.upvotes
 ${leaderboards.forumPosts.views
 	.map(
 		(p, i) =>
-			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) - ${n(p.views)} views`,
+			`${i + 1}. [${p.title}](https://deeeep.io/forum/${p.forum_id}/${p.id}) by [${p.user.username}](https://deeeep.io/u/${encodeURIComponent(p.user.username)}) - ${h(p.views)} views`,
 	)
 	.join("  \n")}
 
@@ -170,7 +179,7 @@ ${leaderboards.forumPosts.views
 ${leaderboards.users.xp
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${n(u.xp)} xp`,
+			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.xp)} xp`,
 	)
 	.join("  \n")}
 
@@ -178,7 +187,7 @@ ${leaderboards.users.xp
 ${leaderboards.users.coins
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${n(u.coins)} coins`,
+			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.coins)} coins`,
 	)
 	.join("  \n")}
 
@@ -186,7 +195,7 @@ ${leaderboards.users.coins
 ${leaderboards.users.highscore
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${n(u.highest_score)} xp`,
+			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.highest_score)} xp`,
 	)
 	.join("  \n")}
 
@@ -194,7 +203,7 @@ ${leaderboards.users.highscore
 ${leaderboards.users.killCount
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${n(u.kill_count)} kills`,
+			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.kill_count)} kills`,
 	)
 	.join("  \n")}
 
@@ -202,7 +211,7 @@ ${leaderboards.users.killCount
 ${leaderboards.users.playCount
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${n(u.play_count)} plays`,
+			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.play_count)} plays`,
 	)
 	.join("  \n")}
 
@@ -210,7 +219,7 @@ ${leaderboards.users.playCount
 ${leaderboards.users.views
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${n(u.views)} views`,
+			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.views)} views`,
 	)
 	.join("  \n")}
 `;
