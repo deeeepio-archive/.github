@@ -115,7 +115,7 @@ for (const repo of repos) {
 		const tenThousands = fs.readdirSync(`./${repo}/${million}`);
 		for (const tenThousand of tenThousands) {
 			const hundreds = fs.readdirSync(`./${repo}/${million}/${tenThousand}`);
-			console.log(`Migrating ${repo}/${million}/${tenThousand} ...`);
+			console.log(`Checking ${repo}/${million}/${tenThousand} ...`);
 			for (const hundred of hundreds) {
 				const files = fs.readdirSync(
 					`./${repo}/${million}/${tenThousand}/${hundred}`,
@@ -134,6 +134,8 @@ for (const repo of repos) {
 		}
 	}
 }
+
+console.log(leaderboards);
 
 const stats = `## File sizes
 ${fileSizes}
