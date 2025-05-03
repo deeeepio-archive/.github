@@ -107,11 +107,11 @@ const callbacks = {
 
 		if (
 			leaderboards.users.views.length < 5 ||
-			leaderboards.users.views[4].views < user.views
+			leaderboards.users.views[4].profile_views < user.profile_views
 		) {
 			leaderboards.users.views.push(user);
 			leaderboards.users.views = leaderboards.users.views
-				.sort((a, b) => b.views - a.views)
+				.sort((a, b) => b.profile_views - a.profile_views)
 				.slice(0, 5);
 		}
 	},
@@ -219,7 +219,7 @@ ${leaderboards.users.playCount
 ${leaderboards.users.views
 	.map(
 		(u, i) =>
-			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.views)} views`,
+			`${i + 1}. [${u.username}](https://deeeep.io/u/${encodeURIComponent(u.username)}) - ${h(u.profile_views)} views`,
 	)
 	.join("  \n")}
 `;
