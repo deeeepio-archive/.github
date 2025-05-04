@@ -8,6 +8,10 @@ An automated archive for [Deeeep.io](https://deeeep.io/).
 
 This repository contains the code responsible for scraping Deeeep.io's API and committing them to archive repositories.
 
+## [client](https://github.com/deeeepio-archive/client)
+
+Archive of the Deeeep.io client. It includes all JavaScript and CSS files. Images are not included.
+
 ## [forumPosts](https://github.com/deeeepio-archive/forumPosts)
 
 Archive of the Deeeep.io forums. It includes all forum regions (English, Chinese, Portuguese, Spanish, Bork, Turkish, Russian, Vietnamese, and Polish). The archive also includes publicly visible comments for each post.
