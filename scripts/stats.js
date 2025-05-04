@@ -35,7 +35,7 @@ const c = `<details>
 
 `;
 
-const nums = 30;
+const nums = 50;
 const previewNums = 10;
 const repos = ["forumPosts", "users"];
 const callbacks = {
