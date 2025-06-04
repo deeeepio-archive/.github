@@ -30,6 +30,13 @@ jobs:
           repository: deeeepio-archive/maps
           path: maps
 
+      - name: Checkout playHistories archive
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          repository: deeeepio-archive/playHistories
+          path: playHistories
+
       - name: Checkout users archive
         uses: actions/checkout@v4
         with:
@@ -41,6 +48,7 @@ jobs:
         run: |
           echo "Forum posts: $(find forumPosts -type f | wc -l | sed -r ':L;s=\b([0-9]+)([0-9]{3})\b=\1,\2=g;t L') files ($(du -sh --exclude=.git/** forumPosts | grep -oE '[0-9.]+[A-Za-z]+?'))  " >> stats
           echo "Maps: $(find maps -type f | wc -l | sed -r ':L;s=\b([0-9]+)([0-9]{3})\b=\1,\2=g;t L') files ($(du -sh --exclude=.git/** maps | grep -oE '[0-9.]+[A-Za-z]+?'))  " >> stats
+          echo "Play histories: $(find playHistories -type f | wc -l | sed -r ':L;s=\b([0-9]+)([0-9]{3})\b=\1,\2=g;t L') files ($(du -sh --exclude=.git/** playHistories | grep -oE '[0-9.]+[A-Za-z]+?'))  " >> stats
           echo "Users: $(find users -type f | wc -l | sed -r ':L;s=\b([0-9]+)([0-9]{3})\b=\1,\2=g;t L') files ($(du -sh --exclude=.git/** users | grep -oE '[0-9.]+[A-Za-z]+?'))  " >> stats
 
       - name: Update README
