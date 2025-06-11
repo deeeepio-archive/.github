@@ -20,7 +20,7 @@ Archive of the Deeeep.io forums. It includes all forum regions (English, Chinese
 
 Archive of maps created in the [Deeeep.io Mapmaker](https://mapmaker.deeeep.io/).
 
-## [playHistories](https://github.com/deeeepio-archive/maps)
+## [playHistories](https://github.com/deeeepio-archive/playHistories)
 
 Archive of the game's play history.
 
