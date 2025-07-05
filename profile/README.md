@@ -62,7 +62,7 @@ For example, a document with ID 1234 will be placed in `-------0/-------0/----12
 ## File sizes
 Forum posts: 61,884 files (1.1G)  
 Maps: 12,076 files (714M)  
-Play histories: 6,684,087 files (26G)  
+Play histories: 6,688,587 files (26G)  
 Users: 1,088,352 files (4.3G)  
 
 
@@ -189,7 +189,7 @@ Users: 1,088,352 files (4.3G)
 7. [Welcome to the new Deeeep.io's forum!](https://deeeep.io/forum/en/246) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/-------0/-------0/-----200/-----246.json)) by [fedeio👍](https://deeeep.io/u/fedeio%F0%9F%91%8D) ([archive](https://github.com/deeeepio-archive/users/blob/main/-------0/-------0/-------0/-------5.json)) - 3,037 views  
 8. [This... (click to see)](https://deeeep.io/forum/en/2200) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/-------0/-------0/----2200/----2200.json)) by [Pαɳɳყ_Lҽ_Pαɳƈαƙҽ🥞💜🤡🗿](https://deeeep.io/u/P%CE%B1%C9%B3%C9%B3%E1%83%A7_L%D2%BD_P%CE%B1%C9%B3%C6%88%CE%B1%C6%99%D2%BD%F0%9F%A5%9E%F0%9F%92%9C%F0%9F%A4%A1%F0%9F%97%BF) ([archive](https://github.com/deeeepio-archive/users/blob/main/20000000/20830000/20833100/20833158.json)) - 2,982 views  
 9. [FFA and TFFA coin/XP system change](https://deeeep.io/forum/en/4282) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/-------0/-------0/----4200/----4282.json)) by [Whale_Shark2](https://deeeep.io/u/Whale_Shark2) ([archive](https://github.com/deeeepio-archive/users/blob/main/-------0/--690000/--694300/--694350.json)) - 2,709 views  
-10. [POV:Mike The "Great" When he sees a actually decent player.](https://deeeep.io/forum/en/17455) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/-------0/---10000/---17400/---17455.json)) by [echdeath](https://deeeep.io/u/echdeath) ([archive](https://github.com/deeeepio-archive/users/blob/main/-------0/--740000/--745300/--745316.json)) - 2,637 views  
+10. [POV:Mike The "Great" When he sees a actually decent player.](https://deeeep.io/forum/en/17455) ([archive](https://github.com/deeeepio-archive/forumPosts/blob/main/-------0/---10000/---17400/---17455.json)) by [echdeath](https://deeeep.io/u/echdeath) ([archive](https://github.com/deeeepio-archive/users/blob/main/-------0/--740000/--745300/--745316.json)) - 2,638 views  
 <details>
 <summary>Show more</summary>
 
